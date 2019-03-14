@@ -1,14 +1,15 @@
 # Browser Technologies - Opdracht 1.2
 
 # Table of Contents
-+ Doel van deze opdracht
-+ Uitleg opdracht
-+ Testresultaten + Oplossingen
-  
-# Doel van deze opdracht
+1. Doel van deze opdracht
+2. Uitleg opdracht
+3. Testresultaten + Oplossingen
+4. Conclusie 
+
+# 1. Doel van deze opdracht
 Het doel van de deze opdracht is het testen van mijn eigen site op 8 verschillende criteria, om te zien of mijn website geoptimaliseerd is.
 
-# Uitleg opdracht
+# 2. Uitleg opdracht
 In deze opdracht ga ik Progressive Enhancement toepassen op mijn eigen OBA Web App. Hierin ga ik mijn website basis van de onderstaande 8 features testen.:
 + Localstorage/Cookies
 + Afbeeldingen
@@ -25,10 +26,10 @@ Op basis van de testresultaten ga ik mijn code aanpassen, en uitleggen waarom ik
   - een beschrijving van de Device lab test en screenreader test.
   - beschrijf hoe je de problemen hebt opgelost, of hoe je dit zou oplossen (met todo’s) als je genoeg tijd en budget zou hebben
 
-# Testresultaten + Oplossingen
+# 3. Testresultaten + Oplossingen
 Onderstaand ga ik alle 8 features bij langs. Hierin behandel ik hoe ik heb getest, wat de testrestulaten zijn en hoe ik mogelijke problemen heb opgelost. Voor het testen gebruik ik Google Chrome op mijn Windows Laptop.
 
-# 1. Localstorage/Cookies
+# 3.1 Localstorage/Cookies
 #### Hoe?
 Om localstorage uit te schakelen in mijn browser, moet ik ook cookies uitschakelen. Daarom test ik beide onderdelen in 1 keer. Om het uit te schakelen ga ik naar instellingen -> instellingen voor content -> cookies -> uitschakelen.
 
@@ -55,7 +56,7 @@ setLocation: function(position) {
 }
 ```
 
-# 2. Afbeeldingen
+# 3.2 Afbeeldingen
 #### Hoe?
 Instellingen -> Instellingen voor content -> Afbeeldingen -> Uitschakelen
 
@@ -76,7 +77,7 @@ Wel is het handig om een "alt-text" mee te geven aan alle "img" objecten, om de 
 
 
 
-# 3. Custom Fonts
+# 3.3 Custom Fonts
 #### Hoe?
 Ik maak op mijn website gebruik van de 'inconsolata' font. Zie hieronder mijn CSS:
 ```css
@@ -102,7 +103,7 @@ Om toch errors te voorkomen, zorg ik ervoor dat er een standaardfont wordt aange
 }
 ```
 
-# 4. Kleur
+# 3.4 Kleur
 #### Hoe?
 Windows Logo -> Color Filter -> Enable Color Filter (greyscale)
 
@@ -114,7 +115,7 @@ Site blijft duidelijk en overzichtelijk. Ook is de MapBox nog steeds zeer duidel
 #### Oplossingen
 Omdat het doel van de site nog behaald kan worden, is er geen oplossing nodig.
 
-# 5. Muis
+# 3.5 Muis
 #### Hoe?
 Door het niet gebruiken van mijn muis maar alleen van het toetsenbord, is te testen hoe mijn site functioneert zonder muis. 
 
@@ -128,7 +129,7 @@ Na het kiezen van het gewenste boek, wordt de beschikbaarheidpagina geladen. Hel
 #### Oplossingen
 'Bijna' alle functionaliteit werkt zonder het gebruik van een muis. In principe zou je kunnen zoeken naar de beschikbaarheid van een boek en de routebeschrijving kunnen opvragen. Helaas is er geen interractie met de mapbox zonder muis, wel is de kaart gewoon te zien.
 
-# 6. Javascript
+# 3.6 Javascript
 #### Hoe?
 Instellingen -> Instellingen voor content -> Javascript -> Uitschakelen
 
@@ -138,7 +139,7 @@ Zonder Javascript is mijn site helaas nutteloos. Omdat alle connectie met de API
 #### Oplossingen
 De oplossing om de site bruikbaar te maken voor mensen die geen javascript ondersteunen in hun browser is het laden van de alle javascript op de server. Naast dat zou ik een melding kunnen geven aan mensen die javascript uit hebben staan, met de melding dat ze Javascript aan moeten hebben om de site te kunnen gebruiken.
 
-# 7. Breedband
+# 3.7 Breedband
 #### Hoe?
 Developer tools -> Network -> Online -> Slow 3G
 
@@ -154,7 +155,7 @@ Je bent dus totaal 19.2 + 5 + 10 = ongeveer 35 seconden bezig met het zoeken naa
 #### Oplossingen
 Met langzaam 3G kan je in 35 seconden checken waar je boek is, dit is niet heel langzaam. Ik zou de laadtijd met ongeveer 25% kunnen laten afnemen door de kwaliteit van de afbeelding op de voorpagina de verlagen. Verder zijn er geen punten waarop ik de laadtijd kan versnellen. 
 
-# 8. Screen reader
+# 3.8 Screen reader
 #### Hoe?
 Om te testen of mijn site gebruikt kan worden door slechtzienden heb ik de Chrome Extensie ChromeVox geinstalleerd. Deze extensie zorgt ervoor dat alles voorgelezen wordt.
 
@@ -173,9 +174,11 @@ De gebruiker krijgt nu 'search' te horen, waarna hij op enter kan drukken om te 
 
 Na het zoeken komen alle mogelijke boeken op het scherm. Door nu op tab te drukken hoor je alleen maar 'beschikbaarheid, beschikbaarheid, beschikbaarheid, ...'. Dit komt omdat de pagina door alle `<a>` tags met daarin de tekst 'beschikbaarheid' heen tabt. Ik zou dit kunnen oplossen door de tekst te veranderen naar `beschikbaarheid [titel boek]`. 
 
-De laatste stap is het kijken naar de beschikbaarheid. Helaas is het voor blinden niet mogelijk om de MapBox te zien. Gelukkig is het wel mogelijk om van alle mogelijkheden doorgestuurd te worden naar Google Maps. Dit zorgt ervoor dat de gebruiker vanuit Google Maps routebeschrijving te horen krijgt waar hij langs moet lopen.
+De laatste stap is het kijken naar de beschikbaarheid. Helaas is het voor blinden niet mogelijk om de MapBox te zien. Gelukkig is het wel mogelijk om van alle mogelijkheden doorgestuurd te worden naar Google Maps. Dit zorgt ervoor dat de gebruiker vanuit Google Maps routebeschrijving te horen krijgt waar hij langs moet lopen, zoals hij dit normaal ook doet. Vervolgens zou hij bij de bibliotheek naar het boek kunnen vragen.
 
-# 9. Device Lab
+Het is dus mogelijk om als slechtziende/blinde op mijn website naar een boek te zoeken (als de oplossingen hierboven worden uitgevoerd).
+
+# 3.9 Device Lab
 #### Hoe?
 Door mijn website op de apparaten in het device lab te testen. (morgen).
 
@@ -183,3 +186,9 @@ Door mijn website op de apparaten in het device lab te testen. (morgen).
 
 
 #### Oplossingen
+
+# 4. Conclusie
+Onder perfecte omstandigheden (eigen laptop, alle functionaliteit beschikbaar) werkt mijn site naar behoren, maar werkt het ook als bepaalde functionaliteit ontbreekt? Door middel van het testen van mijn site op de punten besproken in dit vak ben ik op de hoogte van mogelijke knelpunten van mijn site en heb ik deze aangepakt. 
+
+Al met al is was het zeer leerzaam en is het geen verkeerd idee om je site dubbel te checken.
+

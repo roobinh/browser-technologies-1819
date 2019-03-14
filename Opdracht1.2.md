@@ -63,7 +63,17 @@ Instellingen -> Instellingen voor content -> Afbeeldingen -> Uitschakelen
 Door het uitschakelen van afbeeldingen blijft de functionaliteit op de website volledig werken, alleen is het OBA logo & zijn de boekcovers niet meer te zien. 
 
 #### Oplossing
-Omdat de functionaliteit volledig werkt, is het niet nodig om aanpassingen te maken. De kaart (mapbox) werkt nog steeds en er zijn titels van boeken te zien. Wel is het handig om een "alt-text" mee te geven aan alle "img" objecten, om de gebruiker te laten weten wat hij had moeten zien.
+Omdat de functionaliteit volledig werkt, is het niet nodig om aanpassingen te maken. De kaart (mapbox) werkt nog steeds en er zijn titels van boeken te zien. 
+
+Wel is het handig om een "alt-text" mee te geven aan alle "img" objecten, om de gebruiker te laten weten wat hij had moeten zien.
+```html
+<!-- Oud -->
+<img class="logo" src="./src/img/oba_logo.jpg" href="#home">
+
+<!-- Nieuw -->
+<img class="logo" src="./src/img/oba_logo.jpg" alt="oba_logo" href="#home">
+```
+
 
 
 # 3. Custom Fonts
@@ -102,7 +112,7 @@ Site blijft duidelijk en overzichtelijk. Ook is de MapBox nog steeds zeer duidel
 ![Screenshot](https://imgshare.io/images/2019/03/14/oba-site-greyscale.png)
 
 #### Oplossingen
-Geen oplossing nodig.
+Omdat het doel van de site nog behaald kan worden, is er geen oplossing nodig.
 
 # 5. Muis
 #### Hoe?
@@ -126,7 +136,7 @@ Instellingen -> Instellingen voor content -> Javascript -> Uitschakelen
 Zonder Javascript is mijn site helaas nutteloos. Omdat alle connectie met de API via Javascript gebeurd, is er nu geen data op te halen. Zelfs de zoeken knop functioneert niet.
 
 #### Oplossingen
-De enige oplossing mogelijk om de site bruikbaar te maken voor mensen die geen javascript ondersteunen in hun browser is het laden van de javascript op de server. Hier gaan we in het komende project mee bezig. Wel zou ik een melding kunnen geven aan mensen die javascript uit hebben staan, met de melding dat ze Javascript aan moeten hebben om de site functioneel te maken.
+De oplossing om de site bruikbaar te maken voor mensen die geen javascript ondersteunen in hun browser is het laden van de alle javascript op de server. Naast dat zou ik een melding kunnen geven aan mensen die javascript uit hebben staan, met de melding dat ze Javascript aan moeten hebben om de site te kunnen gebruiken.
 
 # 7. Breedband
 #### Hoe?
@@ -144,5 +154,32 @@ Je bent dus totaal 19.2 + 5 + 10 = ongeveer 35 seconden bezig met het zoeken naa
 #### Oplossingen
 Met langzaam 3G kan je in 35 seconden checken waar je boek is, dit is niet heel langzaam. Ik zou de laadtijd met ongeveer 25% kunnen laten afnemen door de kwaliteit van de afbeelding op de voorpagina de verlagen. Verder zijn er geen punten waarop ik de laadtijd kan versnellen. 
 
+# 8. Screen reader
+#### Hoe?
+Om te testen of mijn site gebruikt kan worden door slechtzienden heb ik de Chrome Extensie ChromeVox geinstalleerd. Deze extensie zorgt ervoor dat alles voorgelezen wordt.
+
+#### Waarnemingen & Oplossingen
+Bij het laden van de hoofdpagina hoor ik: 'oba_logo image'. Dit zou de gebruiker op de hoogte kunnen stellen dat de pagina succesvol geladen is en momenteel het logo weergegeven wordt. 
+
+Door het drukken op tab hoor ik: 'search book'. Dit kan de gebruiker op de hoogte stellen dat het gewenste boek daar gevonden kan worden. Door nog een keer op tab te drukken hoor ik 'enter'. Omdat dit niet duidelijk is, heb ik 'enter' veranderd naar 'search'.
+```html
+<!-- Old -->
+<button type="button" class="button" id="search">ENTER</button>
+
+<!-- New -->
+<button type="button" class="button" id="search">SEARCH</button>
+```
+De gebruiker krijgt nu 'search' te horen, waarna hij op enter kan drukken om te zoeken.
+
+Na het zoeken komen alle mogelijke boeken op het scherm. Door nu op tab te drukken hoor je alleen maar 'beschikbaarheid, beschikbaarheid, beschikbaarheid, ...'. Dit komt omdat de pagina door alle `<a>` tags met daarin de tekst 'beschikbaarheid' heen tabt. Ik zou dit kunnen oplossen door de tekst te veranderen naar `beschikbaarheid [titel boek]`. 
+
+De laatste stap is het kijken naar de beschikbaarheid. Helaas is het voor blinden niet mogelijk om de MapBox te zien. Gelukkig is het wel mogelijk om van alle mogelijkheden doorgestuurd te worden naar Google Maps. Dit zorgt ervoor dat de gebruiker vanuit Google Maps routebeschrijving te horen krijgt waar hij langs moet lopen.
+
+# 9. Device Lab
+#### Hoe?
+Door mijn website op de apparaten in het device lab te testen. (morgen).
+
+#### Waarnemingen
 
 
+#### Oplossingen

@@ -10,7 +10,7 @@
 Het doel van de deze opdracht is het testen van mijn eigen site op 8 verschillende criteria, om te zien of mijn website geoptimaliseerd is.
 
 # 2. Uitleg opdracht
-In deze opdracht ga ik Progressive Enhancement toepassen op mijn eigen OBA Web App. Hierin ga ik mijn website basis van de onderstaande 8 features testen.:
+In deze opdracht ga ik Progressive Enhancement toepassen op mijn eigen OBA Web App. Hierin ga ik mijn website  op de onderstaande 9 features testen:
 + Localstorage/Cookies
 + Afbeeldingen
 + Custom Fonts 
@@ -27,20 +27,20 @@ Op basis van de testresultaten ga ik mijn code aanpassen, en uitleggen waarom ik
   - beschrijf hoe je de problemen hebt opgelost, of hoe je dit zou oplossen (met todo’s) als je genoeg tijd en budget zou hebben
 
 # 3. Testresultaten + Oplossingen
-Onderstaand ga ik alle 8 features bij langs. Hierin behandel ik hoe ik heb getest, wat de testrestulaten zijn en hoe ik mogelijke problemen heb opgelost. Voor het testen gebruik ik Google Chrome op mijn Windows Laptop.
+Onderstaand ga ik alle 9 features bij langs. Hierin behandel ik hoe ik heb getest, wat de testrestulaten zijn en hoe ik mogelijke problemen heb opgelost. Voor het testen gebruik ik Google Chrome op mijn Windows Laptop.
 
 # 3.1 Localstorage/Cookies
 #### Hoe?
-Om localstorage uit te schakelen in mijn browser, moet ik ook cookies uitschakelen. Daarom test ik beide onderdelen in 1 keer. Om het uit te schakelen ga ik naar instellingen -> instellingen voor content -> cookies -> uitschakelen.
+Om localstorage uit te schakelen in mijn browser, schakel ik cookies ook uit. Daarom test ik beide onderdelen in een keer. Om cookies uit te schakelen ga ik naar instellingen -> instellingen voor content -> cookies -> uitschakelen.
 
 
 #### Waarnemingen
-Bij het opstarten van de website, krijg ik in de console de foutmelding: _Uncaught DOMException: Failed to read the 'localStorage' property from 'Window': Access is denied for this document.'_ Dit komt omdat ik de localstorage uitgeschakeld heb en mijn website wel gebruik maakt van localstorage. Hierin sla ik namelijk de gebruikergegevens, zoals locatie, in op. Dit wordt later in de site gebruikt om de dichstbijzijnde bibliotheek te bepalen. Door de foutmelding aan het begin, werkt de rest van de site helaas ook niet meer.
+Bij het opstarten van de website, krijg ik in de console de foutmelding: _Uncaught DOMException: Failed to read the 'localStorage' property from 'Window': Access is denied for this document.'_ Dit komt omdat ik de localstorage uitgeschakeld heb en mijn website wel gebruik maakt van localstorage. Hierin sla ik namelijk de locatie van de gebruiker in op. Dit wordt later in de site gebruikt om de dichstbijzijnde bibliotheek te bepalen. Door de foutmelding aan het begin, werkt de rest van de site helaas ook niet meer.
 
 (helaas maakt de API wrapper ook gebruik van localstorage en is er dus geen data op te halen zonder localstorage. Oplossing hieronder is alleen voor mijn website)
 
 #### Oplossing
-Door het opslaan van gebruikergegevens in private variabelen is er geen behoefte meer aan localstorage. Hieronder is te zien hoe de variabelen in de iife worden aangemaakt
+Door het opslaan van gebruikergegevens in private variabelen is er geen behoefte meer aan localstorage. Hieronder is te zien hoe de variabelen (in de iife, dus niet bereikbaar voor buitenwereld) worden aangemaakt
 ```javascript
 (async() => {
 
@@ -153,7 +153,7 @@ Daarna bij het klikken op het boek duurt het ongeveer 10 seconden voordat de ava
 Je bent dus totaal 19.2 + 5 + 10 = ongeveer 35 seconden bezig met het zoeken naar de beschikbaarheid
 
 #### Oplossingen
-Met langzaam 3G kan je in 35 seconden checken waar je boek is, dit is niet heel langzaam. Ik zou de laadtijd met ongeveer 25% kunnen laten afnemen door de kwaliteit van de afbeelding op de voorpagina de verlagen. Verder zijn er geen punten waarop ik de laadtijd kan versnellen. 
+Met langzaam 3G kan je in 35 seconden checken waar je boek is, dit is niet heel langzaam. Ik zou de laadtijd met ongeveer 25% kunnen laten afnemen door de kwaliteit van de afbeelding op de voorpagina de verlagen. Verder zijn er geen punten waarop ik de laadtijd kan versnellen, omdat de rest javascript, html en CSS bevat. 
 
 # 3.8 Screen reader
 #### Hoe?

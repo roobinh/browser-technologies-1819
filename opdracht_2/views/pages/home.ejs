@@ -14,7 +14,7 @@
 <main>
     <!-- home page -->
     <div class="header">
-        <h4>Krijg een WhatsApp bericht zodra jouw favoriete team heeft gescoord!</h4>
+        <h4>Krijg een melding zodra jouw favoriete team heeft gescoord!</h4>
 
         <h1>Selecteer Team:</h1>
 
@@ -28,15 +28,6 @@
         <form action="/confirm" method="post">
             <button type="button" id="continue" href="/confirm">Doorgaan</button>
         </form>
-
-        <%
-            var notification = new Notification();
-
-            notification.requestPermission.then(function(restult) {
-                console.log(result);
-            })
-        %>
-
 
         <!-- <a href="https://wa.me/31646813155?text=Dit%20is%20een%20WhatsAppje!">Whatsapp me</a> -->
 

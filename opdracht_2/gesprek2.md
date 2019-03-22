@@ -9,7 +9,7 @@ Dit doen we door middel van een opdracht. Ik heb gekozen voor de opdracht: notif
 *Omdat ik afgelopen week weer ziek ben geweest heb ik helaas niet de tijd gekregen om te doen wat ik deze week af wou hebben. Wel heb ik een stappenplan gemaakt zodat ik meteen gestructureerd aan het werk kan als ik mij weer beter voel.*
 
 ## Stappenplan
-De opdracht is dus: notificatie krijgen wanneer je favoriete voetbalteam gescoord heeft.
+De opdracht is dus: notificatie krijgen wanneer je favoriete voetbalteam gescoord heeft. Zorg ervoor dat alle gebruikers, met alle browsers, in iedere context minimaal de core functionaliteit te zien/horen/voelen krijgen. 
 
 Website:
 - Hoofdpagina:
@@ -18,7 +18,10 @@ Website:
 	- Als je device compatible is met notificaties (Google Chrome op een moderne telefoon + javascript aan), kan je ervoor kiezen op de hoogte worden gehouden d.m.v. notificaties. Je ontvangt dan een notificatie als je favoriete team gescoort heeft.
 	- Mocht je telefoon geen notificaties toestaan, is het mogelijk om je e-mail adres op te geven om vervolgens je bericht via e-mail te ontvangen.
 	- Mocht je ook geen e-mail willen opgeven, zorg ik ervoor dat de pagina elke 15 seconden automatisch refresht en je dus de score op je scherm getoond krijgt.
-	- Heb je javascript uitstaan en zijn dit geen opties voor jou, zou je zelf de pagina moeten verversen.(ik ga ervoor zorgen om de website zo gebruiksvriendelijk te maken)
+	- Heb je javascript uitstaan en zijn dit geen opties voor jou, zou je zelf de pagina moeten verversen. (ik ga ervoor zorgen om de website zo gebruiksvriendelijk te maken)
+- Onderzoek
+    - Notificaties
+    - ?
 
 Naast het maken van de website zorg ik ervoor dat ik:
 - Een readme ga schrijven met alle nodig informatie daarin:
@@ -32,3 +35,8 @@ Naast het maken van de website zorg ik ervoor dat ik:
 - Moet ik met echte voetbal data gaan werken (zoals voetbal API) of fake data?
 - Als ik dit uitwerk volgens de opdracht, is het dan voldoende 
 - Wat wordt bedoeld met 3-lagen?
+
+#automatisch verversen
+header tag
+http-equif
+

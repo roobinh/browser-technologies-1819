@@ -16,11 +16,12 @@ async function main() {
             scope: '/'
         });
         console.log('Service worker registered.');
-
+        
+        var convertedPublicKey = urlBase64ToUint8Array(publicVapidKey);
         console.log("Register Push...");
         const subscription = await register.pushManager.subscribe({
             userVisibleOnly: true,
-            applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
+            applicationServerKey: convertedPublicKey
         })
         console.log("Push registered.")
         
@@ -34,14 +35,6 @@ async function main() {
         })
         console.log("Push send!")
     }
-
-
-    setInterval(function() {
-        console.log('jo')
-        // if(goal) {
-        //     send();
-        // }
-    }, 500);
 
     // function to convert vapid key
     function urlBase64ToUint8Array(base64String) {
@@ -60,3 +53,52 @@ async function main() {
         return outputArray;
     }
 }
+
+// event Listeners
+var button = document.getElementById('recieveNotifications');
+button.addEventListener("click", function() {
+    main();
+    location.reload();
+})
+
+var disableworker = document.getElementById('disableworker');
+disableworker.addEventListener("click", function() {
+    console.log("Disabling Worker...")
+    disableWorker()
+    console.log("Worker disabled.")
+})
+
+// check if service worker is running
+navigator.serviceWorker.getRegistrations().then(registrations => {
+    if(registrations.length == 1) {
+        var notifications = document.getElementById('notifications');
+        notifications.setAttribute("style", "display: none");
+        var runningworker = document.getElementById('runningworker');
+        runningworker.setAttribute("style", "display: block");
+    }
+});
+
+// disable service workers
+function disableWorker() {
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+         registration.unregister()
+       } 
+    })
+    location.reload();
+}
+
+var test = document.getElementById('testnotification');
+test.addEventListener("click", function() {
+    main();
+})
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function(){
+  if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
+    var txt = xmlhttp.responseText;
+    console.log(txt);
+  }
+};
+xmlhttp.open("GET","./public/soccer.json",true);
+xmlhttp.send();

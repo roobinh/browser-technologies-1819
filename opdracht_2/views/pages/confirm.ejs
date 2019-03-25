@@ -21,13 +21,19 @@
     </div>
 
     <noscript>
-        <center><p>(Helaas heb je javascript uitstaan, daarom kunt u geen meldingen ontvangen.)</p><center>
+        <center><p>(Helaas heeft u javascript uitstaan, daarom kunt u geen meldingen ontvangen.)</p><center>
     </noscript>
+
+    <div class="runningworker" id="runningworker">
+        <h3>Service worker is running</h3>
+        <button id="disableworker">disable</button>
+        <button id="testnotification">test</button>
+    </div>
 
     <div class="notifications" id="notifications">
         <h2>Wilt u meldingen ontvangen wanneer <%-club%> heeft gescoord?</h2>
 
-        <button class="button" onclick='main()'>Ja, graag!</button>
+        <button class="button" id="recieveNotifications">Ja, graag!</button>
     </div>
 
     <script>
@@ -47,7 +53,7 @@
     </div>
 
     <div class="refresh">
-        <h2>Naast dat wordt deze pagina elke 10 seconden automatisch ververst!</h2>
+        <h2>(Naast dat wordt deze pagina elke 10 seconden automatisch ververst!)</h2>
     </div>
 
     <script src="client.js"></script>

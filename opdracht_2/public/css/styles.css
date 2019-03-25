@@ -59,6 +59,14 @@ input[type=text] {
     border: black 1px;
 }
 
+.runningworker {
+    display: none;
+    margin: 1em;
+    text-align: center;
+    border-style: solid;
+    border: black 1px;
+}
+
 .refresh {
     margin: 1em;
     text-align: center;

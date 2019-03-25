@@ -8,3 +8,4 @@ self.addEventListener('push', e => {
         icon: './img/soccer.ico'
     })
 })
+

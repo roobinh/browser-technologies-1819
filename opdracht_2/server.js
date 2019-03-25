@@ -102,9 +102,9 @@ app.get('/confirm', function (req, res, next) {
 })
 
 // check soccer.json file for changes.
-// fs.watchFile('./soccer.json', (curr, pref) => {
-//     console.log("File changed");
-// })
+fs.watchFile('./soccer.json', (curr, pref) => {
+    console.log("File changed");
+})
 
 // start server
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

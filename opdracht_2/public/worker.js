@@ -5,6 +5,6 @@ self.addEventListener('push', e => {
     console.log("Push recieved.")
     self.registration.showNotification(data.title, {
         body: data.body,
-        icon: ''
+        icon: './img/soccer.ico'
     })
 })

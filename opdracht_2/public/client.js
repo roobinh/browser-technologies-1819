@@ -37,11 +37,11 @@ async function main() {
 
 
     setInterval(function() {
-
-        if(goal) {
-            send();
-        }
-    }, 10000);
+        console.log('jo')
+        // if(goal) {
+        //     send();
+        // }
+    }, 500);
 
     // function to convert vapid key
     function urlBase64ToUint8Array(base64String) {

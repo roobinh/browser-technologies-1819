@@ -52,10 +52,23 @@ input[type=text] {
 }
 
 .notifications {
+    display: none;
     margin: 1em;
-    margin-top: 3em;
     text-align: center;
-    justify-content: center;
-    height: 100px;
-    width: auto;
+    border-style: solid;
+    border: black 1px;
+}
+
+.refresh {
+    margin: 1em;
+    text-align: center;
+    border-style: solid;
+    border: black 1px;
+}
+
+.mail {
+    margin: 1em;
+    text-align: center;
+    border-style: solid;
+    border: black 1px;
 }

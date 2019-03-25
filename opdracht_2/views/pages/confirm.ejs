@@ -6,36 +6,37 @@
     <% include ../partials/head %>
 
     <!-- automatic refresh -->
-    <!-- <meta http-equiv="refresh" content="10"> -->
-    
+    <meta http-equiv="refresh" content="10">
 </head>
+
+<!-- confirm page -->  
 <body class="container">
 
     <header>
         <% include ../partials/header %>
     </header>
-
-    <!-- confirm page -->
-    <div class="header">
-        <h1>Je hebt <%- club %> geselecteerd</h1>
-    </div>
-
+ 
     <div class="score">
-        <h1><%-thuisteam %> <%- thuisgoals %> - <%-uitteam %> <%- uitgoals %></h1>
+        <h1><%-thuisteam %> <%- thuisgoals %> - <%-uitgoals %> <%- uitteam %></h1>
     </div>
 
     <noscript>
-        <p> Helaas heb je javascript uitstaan, daarom kunt u geen meldingen ontvangen.</p>
+        <center><p>(Helaas heb je javascript uitstaan, daarom kunt u geen meldingen ontvangen.)</p><center>
     </noscript>
 
-    <div class="notifications">
+    <div class="notifications" id="notifications">
         <h2>Wilt u meldingen ontvangen wanneer <%-club%> heeft gescoord?</h2>
 
         <button class="button" onclick='main()'>Ja, graag!</button>
     </div>
 
-    <div class="notifications">
-        <h2>Zo niet, wilt u een e-mail ontvangen als er wordt gescoord?</h2>
+    <script>
+        var notifications = document.getElementById('notifications');
+        notifications.setAttribute('style', 'display: block');
+    </script>
+
+    <div class="mail">
+        <h2>Wilt u een e-mail ontvangen als er wordt gescoord?</h2>
 
         <form action="">
             E-mailadres
@@ -45,10 +46,8 @@
         <button class="button" onclick='main()'>Ja, graag!</button>
     </div>
 
-    <div class="notifications">
-        <h2>U kunt de pagina automatisch verversen om elke 10 seconden te zien of er gescoord is</h2>
-
-        <button class="button" onclick='main()'>Graag!</button>
+    <div class="refresh">
+        <h2>Naast dat wordt deze pagina elke 10 seconden automatisch ververst!</h2>
     </div>
 
     <script src="client.js"></script>

@@ -56,7 +56,6 @@ app.post('/subscribe', (req, res) => {
     webpush.sendNotification(subscription, payload).catch(err => console.log(err))
 })
 
-
 // index page 
 app.get('/', function(req, res) {
     res.render('pages/home');
@@ -65,13 +64,6 @@ app.get('/', function(req, res) {
 // home page 
 app.get('/home', function(req, res) {
     res.render('pages/home');
-});
-
-// results page
-app.get('/confirm/:club', function (req, res, next) {
-    res.render('pages/confirm', {
-        club: req.params.club
-    });
 });
 
 // results page
@@ -91,6 +83,23 @@ app.post('/confirm', function (req, res, next) {
         uitgoals: uitgoals
     });
 });
+
+app.get('/confirm', function (req, res, next) {
+    const data = require('./soccer.json');
+
+    var thuisteam = data.thuisteam;
+    var thuisgoals = data.thuisgoals;
+    var uitteam = data.uitteam;
+    var uitgoals = data.uitgoals;
+
+    res.render('pages/confirm', {
+        club: req.body.teams,
+        thuisteam: thuisteam,
+        uitteam: uitteam,
+        thuisgoals: thuisgoals,
+        uitgoals: uitgoals
+    })
+})
 
 // check soccer.json file for changes.
 // fs.watchFile('./soccer.json', (curr, pref) => {

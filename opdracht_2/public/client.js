@@ -8,8 +8,6 @@ if('serviceWorker' in navigator) {
     send().catch(err => console.error(err));
 }
 
-// register service worker
-// register push-notification
 // send notification
 async function send() {
     console.log('Registering service worker...');
@@ -24,7 +22,7 @@ async function send() {
         applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
     })
     console.log("Push registered.")
-
+    
     console.log("Sending Notification")
     await fetch('/subscribe', {
         method: 'POST',
@@ -35,6 +33,14 @@ async function send() {
     })
     console.log("Push send!")
 }
+
+
+setInterval(function() {
+
+    if(goal) {
+        send();
+    }
+  }, 10000);
 
 // function to convert vapid key
 function urlBase64ToUint8Array(base64String) {

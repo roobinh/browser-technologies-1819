@@ -9,7 +9,8 @@ const express = require('express')
 const https = require('https')
 const webpush = require('web-push')
 const bodyParser = require('body-parser')
-const path = require('path');
+const path = require('path')
+const fs = require('fs')
 
 const app = express()
 const port = 5000
@@ -35,9 +36,21 @@ app.post('/subscribe', (req, res) => {
 
     // send 201 - resource created
     res.status(201).json({});
+    
+    // read soccer data
+    console.log("reading soccer.json...")
+    const data = require('./soccer.json');
+    console.log(data);
+
+    var thuisteam = data.thuisteam;
+    var thuisgoals = data.thuisgoals;
+    var uitteam = data.uitteam;
+    var uitgoals = data.uitgoals;
+
+    var message = thuisteam + " " + thuisgoals + " - " + uitgoals + " " + uitteam;
 
     // create payload
-    const payload = JSON.stringify({ title: 'Push Test'})
+    const payload = JSON.stringify({ title: 'GOAL!', body: message})
 
     // pass object into sendNotification
     webpush.sendNotification(subscription, payload).catch(err => console.log(err))
@@ -63,10 +76,26 @@ app.get('/confirm/:club', function (req, res, next) {
 
 // results page
 app.post('/confirm', function (req, res, next) {
+    const data = require('./soccer.json');
+
+    var thuisteam = data.thuisteam;
+    var thuisgoals = data.thuisgoals;
+    var uitteam = data.uitteam;
+    var uitgoals = data.uitgoals;
+
     res.render('pages/confirm', {
-        club: req.body.teams
+        club: req.body.teams,
+        thuisteam: thuisteam,
+        uitteam: uitteam,
+        thuisgoals: thuisgoals,
+        uitgoals: uitgoals
     });
 });
 
+// check soccer.json file for changes.
+// fs.watchFile('./soccer.json', (curr, pref) => {
+//     console.log("File changed");
+// })
 
+// start server
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

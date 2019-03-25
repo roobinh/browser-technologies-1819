@@ -55,6 +55,10 @@ input[type=text] {
     border: none;
 }
 
+.score {
+    text-align: center;
+}
+
 .notifications {
     display: inline;
     margin: 1em;

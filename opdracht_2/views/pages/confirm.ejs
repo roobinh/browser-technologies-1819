@@ -4,6 +4,10 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
+
+    <!-- automatic refresh -->
+    <!-- <meta http-equiv="refresh" content="10"> -->
+    
 </head>
 <body class="container">
 
@@ -27,17 +31,28 @@
     <div class="notifications">
         <h2>Wilt u meldingen ontvangen wanneer <%-club%> heeft gescoord?</h2>
 
-        <form method="post" action="">
-            <button type="submit">Ja</button>
-        </form>
+        <button class="button" onclick='main()'>Ja, graag!</button>
+    </div>
 
-        <form method="post" action="">
-            <button type="submit">Nee</button>
-        </form>
+    <div class="notifications">
+        <h2>Zo niet, wilt u een e-mail ontvangen als er wordt gescoord?</h2>
 
+        <form action="">
+            E-mailadres
+            <input type="text" name="firstname" placeholder="example@email.com">
+        </form> 
+
+        <button class="button" onclick='main()'>Ja, graag!</button>
+    </div>
+
+    <div class="notifications">
+        <h2>U kunt de pagina automatisch verversen om elke 10 seconden te zien of er gescoord is</h2>
+
+        <button class="button" onclick='main()'>Graag!</button>
     </div>
 
     <script src="client.js"></script>
+
 </body>
 
 <footer>

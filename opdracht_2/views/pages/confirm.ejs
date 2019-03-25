@@ -15,9 +15,20 @@
 <main>
     
     <div class="header">
-        <h1>Je hebt</h1>
-        <h1 class=team><%- club %></h1>
-        <h1>Geselecteerd</h1>
+        <h1>Je hebt <%- club %> geselecteerd</h1>
+    </div>
+
+    <div class="notifications">
+        <h2>Wilt u meldingen ontvangen wanneer <%-club%> heeft gescoord?</h2>
+
+        <form method="post" action="">
+            <button type="submit">Ja</button>
+        </form>
+
+        <form method="post" action="">
+            <button type="submit">Nee</button>
+        </form>
+
     </div>
 
 </main>

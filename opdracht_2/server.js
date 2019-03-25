@@ -1,5 +1,6 @@
 const express = require('express')
 const https = require('https')
+var bodyparser = require('body-parser')
 const app = express()
 const port = 5000
 
@@ -15,6 +16,9 @@ app.set('view engine', 'ejs');
 
 // set default directory
 app.use(express.static('public'));
+app.use(bodyparser.urlencoded({extended: false}))
+app.use(bodyparser.json());
+
 
 // index page 
 app.get('/', function(req, res) {
@@ -28,11 +32,17 @@ app.get('/home', function(req, res) {
 
 // results page
 app.get('/confirm/:club', function (req, res, next) {
-
     res.render('pages/confirm', {
         club: req.params.club
     });
-
 });
+
+// results page
+app.post('/confirm', function (req, res, next) {
+    res.render('pages/confirm', {
+        club: req.body.teams
+    });
+});
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

@@ -14,19 +14,20 @@
 <main>
     <!-- home page -->
     <div class="header">
-        <h4>Krijg een melding zodra jouw favoriete team heeft gescoord!</h4>
+        <h4>Ontvang een melding zodra jouw favoriete team heeft gescoord!</h4>
 
         <h1>Selecteer Team:</h1>
 
-        <select>
-            <option value="ajax">Ajax</option>
-            <option value="nac">NAC</option>
-            <option value="groningen">Groningen</option>
-            <option value="feyenoord">Feyenoord</option>
-        </select>
+        
+        <form method="post" action="/confirm">
+            <select name="teams" id="teams">
+                <option value="ajax">Ajax</option>
+                <option value="nac">NAC</option>
+                <option value="groningen">Groningen</option>
+                <option value="feyenoord">Feyenoord</option>
+            </select>
 
-        <form action="/confirm" method="post">
-            <button type="button" id="continue" href="/confirm">Doorgaan</button>
+            <input type="submit" name="register"></input>
         </form>
 
         <!-- <a href="https://wa.me/31646813155?text=Dit%20is%20een%20WhatsAppje!">Whatsapp me</a> -->

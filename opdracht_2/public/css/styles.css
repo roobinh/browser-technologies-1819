@@ -55,22 +55,14 @@ input[type=text] {
     border: none;
 }
 
-.books {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: stretch;
-    justify-content: center;
-}
-
-.book {
+.notifications {
+    display: inline;
     margin: 1em;
+    margin-top: 3em;
     text-align: center;
     box-shadow: 10px 10px 20px #505050;
-
-    background-color: white;
-    border-radius: 4px;
-    border-bottom-style:solid;
-    border-bottom: 4px solid #fe0000;
+    height: 300px;
+    width: auto;
 }
 
 .map {
@@ -177,6 +169,8 @@ input[type=text] {
     border-color: #000 transparent #fff transparent;
     animation: lds-dual-ring 1.2s linear infinite;
 }
+
+
 
 /* Keyframes */
 @keyframes lds-dual-ring {

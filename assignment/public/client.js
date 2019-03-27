@@ -24,13 +24,14 @@
         console.log('Service worker registered.');
         
         var convertedPublicKey = urlBase64ToUint8Array(publicVapidKey);
+        
         console.log("Register Push...");
         const subscription = await register.pushManager.subscribe({
             userVisibleOnly: true,
             applicationServerKey: convertedPublicKey
         })
         console.log("Push registered.")
-        
+
         console.log("Sending Notification")
         await fetch('/subscribe', {
             method: 'POST',

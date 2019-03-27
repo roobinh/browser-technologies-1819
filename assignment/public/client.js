@@ -93,12 +93,15 @@
         })
         location.reload();
     }
-
+    
+    // test notification
     var test = document.getElementById('testnotification');
     test.addEventListener("click", function() {
         send();
     })
 
+    // see if score changed
+    // if true: push notification
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function(){
         if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
@@ -119,6 +122,6 @@
             scoreDiv = document.getElementById('score');
         }
     };
-    xmlhttp.open("GET","./js/soccer.json",true);
+    xmlhttp.open("GET","./json/soccer.json",true);
     xmlhttp.send();
 })();

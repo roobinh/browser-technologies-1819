@@ -11,7 +11,6 @@ app.set('view engine', 'ejs');
 
 // set default directory
 app.use(express.static(__dirname + '/public'));
-
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
 
@@ -20,7 +19,6 @@ const publicVapidKey = 'BN8yGtgilYEATAYZEaVyV621kwyv4DMcuGr2coAm36uzqeHHtO3PvcW2
 const privateVapidKey = 'w91xBifwsywDZK091EAaclCwWGoualkhfQ3HWe-C67E'
 webpush.setVapidDetails('mailto:test@test.com', publicVapidKey, privateVapidKey);
 
-// subscribe Route
 app.post('/subscribe', (req, res) => {
     // get push subscription Object
     const subscription = req.body;
@@ -30,7 +28,7 @@ app.post('/subscribe', (req, res) => {
     
     // read soccer data
     console.log("reading soccer.json...")
-    fs.readFile('./public/js/soccer.json', (err, buffer) => {
+    fs.readFile('./public/json/soccer.json', (err, buffer) => {
         if (err) throw err;
         
         const data = JSON.parse(buffer.toString());
@@ -60,19 +58,18 @@ app.get('/home', function(req, res) {
     res.render('pages/home');
 });
 
-// results page
-app.post('/confirm', function (req, res, next) {
-    fs.readFile('./public/js/soccer.json', (err, buffer) => {
+// push notification
+app.post('/score', function (req, res, next) {
+    fs.readFile('./public/json/soccer.json', (err, buffer) => {
         if (err) throw err;
         const data = JSON.parse(buffer.toString());
-        console.log("notificatie vraagteken?")
 
         var thuisteam = data.thuisteam;
         var thuisgoals = data.thuisgoals;
         var uitteam = data.uitteam;
         var uitgoals = data.uitgoals;
 
-        res.render('pages/confirm', {
+        res.render('pages/score', {
             club: req.body.teams,
             thuisteam: thuisteam,
             uitteam: uitteam,
@@ -82,18 +79,19 @@ app.post('/confirm', function (req, res, next) {
     });    
 });
 
-// results page
-app.get('/confirm', function (req, res, next) {
-    fs.readFile('./public/js/soccer.json', (err, buffer) => {
+// score page
+app.get('/score', function (req, res, next) {
+    fs.readFile('./public/json/soccer.json', (err, buffer) => {
         if (err) throw err;
+
         const data = JSON.parse(buffer.toString());
-        
+
         var thuisteam = data.thuisteam;
         var thuisgoals = data.thuisgoals;
         var uitteam = data.uitteam;
         var uitgoals = data.uitgoals;
 
-        res.render('pages/confirm', {
+        res.render('pages/score', {
             club: req.body.teams,
             thuisteam: thuisteam,
             uitteam: uitteam,
@@ -105,7 +103,7 @@ app.get('/confirm', function (req, res, next) {
 
 app.get('/email/:email', function(req, res, next) {
     // read new email to file (if it doesnt exist)
-    fs.readFile('./public/js/email.json', (err, buffer) => {
+    fs.readFile('./public/json/email.json', (err, buffer) => {
         if (err) throw err;
 
         const json = JSON.parse(buffer.toString());
@@ -116,7 +114,7 @@ app.get('/email/:email', function(req, res, next) {
                 const jsonLength = Object.keys(json).length;                
                 json[jsonLength] = nieuweEmail;
 
-                fs.writeFile('./public/js/email.json', JSON.stringify(json), (err) => {
+                fs.writeFile('./public/json/email.json', JSON.stringify(json), (err) => {
                     if (err) throw err;
                     console.log('The file has been saved!');
                 });
@@ -124,8 +122,8 @@ app.get('/email/:email', function(req, res, next) {
         }  
     });
 
-    //redirect to confirm page
-    res.redirect('/confirm');
+    //redirect to score page
+    res.redirect('/score');
 })
 
 // check if value exists in json

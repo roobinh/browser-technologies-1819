@@ -1,0 +1,40 @@
+<!-- views/pages/about.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+    <!-- home page -->
+    <div class="header">
+        <h4>Altijd op de hoogte van jouw favoriete team</h4>
+
+        <h1>Selecteer Team:</h1>
+        
+        <form method="post" action="/confirm">
+            <select name="teams" id="teams">
+                <option value="ajax">Ajax</option>
+                <!-- <option value="nac">NAC</option> -->
+                <!-- <option value="groningen">Groningen</option> -->
+                <option value="feyenoord">Feyenoord</option>
+            </select>
+
+            <input type="submit" name="register"></input>
+        </form>
+
+    </div>
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>

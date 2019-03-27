@@ -1,0 +1,68 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+
+    <!-- automatic refresh -->
+    <meta http-equiv="refresh" content="10">
+</head>
+
+<!-- confirm page -->  
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+ 
+    <div class="score">
+        <h1><%-thuisteam %> <%- thuisgoals %> - <%-uitgoals %> <%- uitteam %></h1>
+    </div>
+
+    <noscript>
+        <center><p>(Helaas heeft u javascript uitstaan, daarom kunt u geen meldingen ontvangen.)</p><center>
+    </noscript>
+
+    <div class="runningworker" id="runningworker">
+        <h3>Service worker is running</h3>
+        <button id="disableworker">disable</button>
+        <button id="testnotification">test</button>
+    </div>
+
+    <div class="notifications" id="notifications">
+        <h2>Wilt u meldingen ontvangen wanneer <%-club%> heeft gescoord?</h2>
+
+        <button class="button" id="recieveNotifications">Ja, graag!</button>
+    </div>
+
+    <script>
+        var notifications = document.getElementById('notifications');
+        notifications.setAttribute('style', 'display: block');
+    </script>
+
+    <div class="mail">
+        <h2>Wilt u een e-mail ontvangen als er wordt gescoord?</h2>
+
+        <form action="">
+            E-mailadres
+            <input type="text" name="firstname" placeholder="example@email.com">
+        </form> 
+
+        <button class="button" onclick='main()'>Ja, graag!</button>
+    </div>
+
+    <div class="refresh">
+        <h2>(Naast dat wordt deze pagina elke 10 seconden automatisch ververst!)</h2>
+    </div>
+
+    <script src="client.js"></script>
+
+</body>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>

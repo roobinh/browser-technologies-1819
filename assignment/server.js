@@ -1,10 +1,3 @@
-/* APIWha
-var message = "Text Message Here"
-https.get('https://panel.apiwha.com/send_message.php?apikey=0L1CI6ULZ9LZSQAOCTNH&number=31652788674&text=' + message,
-    res => {
-        console.log(res.statusCode);   
-}) */
-
 const express = require('express')
 const https = require('https')
 const webpush = require('web-push')
@@ -107,4 +100,4 @@ fs.watchFile('./soccer.json', (curr, pref) => {
 })
 
 // start server
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`App running, listening on port ${port}!`))

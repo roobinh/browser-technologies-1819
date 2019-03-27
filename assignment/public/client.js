@@ -100,5 +100,5 @@ xmlhttp.onreadystatechange = function(){
     console.log(txt);
   }
 };
-xmlhttp.open("GET","./public/soccer.json",true);
+xmlhttp.open("GET","https://api.myjson.com/bins/oost2",true);
 xmlhttp.send();

@@ -20,14 +20,18 @@
         <h1><%-thuisteam %> <%- thuisgoals %> - <%-uitgoals %> <%- uitteam %></h1>
     </div>
 
-    <noscript>
+    <div class="nojavascript" id="noscript">
         <center><p>(Helaas heeft u javascript uitstaan, daarom kunt u geen meldingen ontvangen.)</p><center>
-    </noscript>
+    </div>
+
+    <script>
+        document.getElementById('noscript').setAttribute('style', 'display: none');
+    </script>
 
     <div class="runningworker" id="runningworker">
-        <h3>Service worker is running</h3>
-        <button id="disableworker">disable</button>
-        <button id="testnotification">test</button>
+        <h3>Meldingen zijn momenteel ingeschakeld!</h3>
+        <button id="disableworker">Uitschakelen</button>
+        <button id="testnotification">Test</button>
     </div>
 
     <div class="notifications" id="notifications">

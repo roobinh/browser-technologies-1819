@@ -1,8 +1,6 @@
 const express = require('express')
-const https = require('https')
 const webpush = require('web-push')
 const bodyParser = require('body-parser')
-const path = require('path')
 const fs = require('fs')
 
 const app = express()
@@ -61,47 +59,80 @@ app.get('/home', function(req, res) {
 
 // results page
 app.post('/confirm', function (req, res, next) {
-    const data = require('./public/js/soccer.json');
+    fs.readFile('./public/js/soccer.json', (err, buffer) => {
+        if (err) throw err;
+        const data = JSON.parse(buffer.toString());
 
-    console.log("ai");
+        var thuisteam = data.thuisteam;
+        var thuisgoals = data.thuisgoals;
+        var uitteam = data.uitteam;
+        var uitgoals = data.uitgoals;
 
-    var thuisteam = data.thuisteam;
-    var thuisgoals = data.thuisgoals;
-    var uitteam = data.uitteam;
-    var uitgoals = data.uitgoals;
-
-    res.render('pages/confirm', {
-        club: req.body.teams,
-        thuisteam: thuisteam,
-        uitteam: uitteam,
-        thuisgoals: thuisgoals,
-        uitgoals: uitgoals
-    });
+        res.render('pages/confirm', {
+            club: req.body.teams,
+            thuisteam: thuisteam,
+            uitteam: uitteam,
+            thuisgoals: thuisgoals,
+            uitgoals: uitgoals
+        });
+      });    
 });
 
 app.get('/confirm', function (req, res, next) {
-    const data = require('./public/js/soccer.json');
+    fs.readFile('./public/js/soccer.json', (err, buffer) => {
+        if (err) throw err;
+        const data = JSON.parse(buffer.toString());
+        
+        var thuisteam = data.thuisteam;
+        var thuisgoals = data.thuisgoals;
+        var uitteam = data.uitteam;
+        var uitgoals = data.uitgoals;
 
-    console.log("ai");
-
-    var thuisteam = data.thuisteam;
-    var thuisgoals = data.thuisgoals;
-    var uitteam = data.uitteam;
-    var uitgoals = data.uitgoals;
-
-    res.render('pages/confirm', {
-        club: req.body.teams,
-        thuisteam: thuisteam,
-        uitteam: uitteam,
-        thuisgoals: thuisgoals,
-        uitgoals: uitgoals
-    })
+        res.render('pages/confirm', {
+            club: req.body.teams,
+            thuisteam: thuisteam,
+            uitteam: uitteam,
+            thuisgoals: thuisgoals,
+            uitgoals: uitgoals
+        })
+      });
 })
 
-// check soccer.json file for changes.
-fs.watchFile('./public/js/soccer.json', (curr, pref) => {
-    console.log("File changed");
-})
+// app.get('/email/:email', function(req, res, next) {
+
+//     console.log("email adres toevoegen aan json...")
+
+//     console.log("huidige json:")
+//     const json = require('./public/js/email.json');
+//     console.log(json);
+
+//     // nieuwe email
+//     nieuweEmail = req.params.email;
+
+//     // json length
+//     var count = Object.keys(json).length;
+//     console.log(count)
+
+//     // toevoegen
+//     json[count+1] = nieuweEmail;   
+
+//     fs.writeFile('./public/js/email.json', json)
+//     // open confirm pagina
+//     const data = require('./public/js/soccer.json');
+
+//     var thuisteam = data.thuisteam;
+//     var thuisgoals = data.thuisgoals;
+//     var uitteam = data.uitteam;
+//     var uitgoals = data.uitgoals;
+
+//     res.render('pages/confirm', {
+//         club: req.body.teams,
+//         thuisteam: thuisteam,
+//         uitteam: uitteam,
+//         thuisgoals: thuisgoals,
+//         uitgoals: uitgoals
+//     })
+// })
 
 // start server
 app.listen(port, () => console.log(`App running, listening on port ${port}!`))

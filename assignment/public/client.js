@@ -5,6 +5,7 @@
     // set localstorage
     myStorage = window.localStorage;
 
+    // register service worker
     async function main() {
         // check for service worker
         if('serviceWorker' in navigator) {
@@ -99,28 +100,23 @@
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function(){
-
-    if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
-        var string = xmlhttp.responseText;
-        var json = JSON.parse(string);
-
-        console.log(string);
-
-        if(myStorage.getItem('score') == undefined) {
-            console.log('Score undefined')
-            myStorage.setItem('score', string);
-        } else {
-            if(myStorage.getItem('score') == string) {
-                console.log("score is hetzelfde");
-                //Do nothing
-            } else {
-                console.log("GOALL!!")
-                send();
+        if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
+            var string = xmlhttp.responseText;
+            
+            if(myStorage.getItem('score') == undefined) {
+                // score undefined
                 myStorage.setItem('score', string);
+            } else {
+                if(myStorage.getItem('score') == string) {
+                    // score the same, do nothing
+                } else {
+                    // goal!!
+                    myStorage.setItem('score', string);
+                    send();
+                }
             }
+            scoreDiv = document.getElementById('score');
         }
-        scoreDiv = document.getElementById('score');
-    }
     };
     xmlhttp.open("GET","./js/soccer.json",true);
     xmlhttp.send();

@@ -32,7 +32,7 @@ app.post('/subscribe', (req, res) => {
     
     // read soccer data
     console.log("reading soccer.json...")
-    const data = require('./soccer.json');
+    const data = require('./public/js/soccer.json');
     console.log(data);
 
     var thuisteam = data.thuisteam;
@@ -61,7 +61,9 @@ app.get('/home', function(req, res) {
 
 // results page
 app.post('/confirm', function (req, res, next) {
-    const data = require('./soccer.json');
+    const data = require('./public/js/soccer.json');
+
+    console.log("ai");
 
     var thuisteam = data.thuisteam;
     var thuisgoals = data.thuisgoals;
@@ -78,7 +80,9 @@ app.post('/confirm', function (req, res, next) {
 });
 
 app.get('/confirm', function (req, res, next) {
-    const data = require('./soccer.json');
+    const data = require('./public/js/soccer.json');
+
+    console.log("ai");
 
     var thuisteam = data.thuisteam;
     var thuisgoals = data.thuisgoals;
@@ -95,7 +99,7 @@ app.get('/confirm', function (req, res, next) {
 })
 
 // check soccer.json file for changes.
-fs.watchFile('./soccer.json', (curr, pref) => {
+fs.watchFile('./public/js/soccer.json', (curr, pref) => {
     console.log("File changed");
 })
 

@@ -1,12 +1,17 @@
-async function main() {
+(()=>{
     // set public vapid key
     const publicVapidKey = 'BN8yGtgilYEATAYZEaVyV621kwyv4DMcuGr2coAm36uzqeHHtO3PvcW2G2dXfj4RWAsH3dOfpyNkWy06oTF7AUM'
 
-    // check for service worker
-    if('serviceWorker' in navigator) {
-        console.log("service worker available!")
+    // set localstorage
+    myStorage = window.localStorage;
 
-        send().catch(err => console.error(err));
+    async function main() {
+        // check for service worker
+        if('serviceWorker' in navigator) {
+            console.log("service worker available!")
+
+            send().catch(err => console.error(err));
+        }
     }
 
     // send notification
@@ -52,55 +57,71 @@ async function main() {
 
         return outputArray;
     }
-}
 
-// event Listeners
-var button = document.getElementById('recieveNotifications');
-button.addEventListener("click", function() {
-    main();
-    location.reload();
-})
-
-var disableworker = document.getElementById('disableworker');
-disableworker.addEventListener("click", function() {
-    console.log("Disabling Worker...")
-    disableWorker()
-    console.log("Worker disabled.")
-})
-
-// check if service worker is running
-navigator.serviceWorker.getRegistrations().then(registrations => {
-    if(registrations.length == 1) {
-        var notifications = document.getElementById('notifications');
-        notifications.setAttribute("style", "display: none");
-        var runningworker = document.getElementById('runningworker');
-        runningworker.setAttribute("style", "display: block");
-    }
-});
-
-// disable service workers
-function disableWorker() {
-    navigator.serviceWorker.getRegistrations().then(function(registrations) {
-        for(let registration of registrations) {
-         registration.unregister()
-       } 
+    // event Listeners
+    var button = document.getElementById('recieveNotifications');
+    button.addEventListener("click", function() {
+        main();
+        location.reload();
     })
-    location.reload();
-}
 
-var test = document.getElementById('testnotification');
-test.addEventListener("click", function() {
-    main();
-})
+    var disableworker = document.getElementById('disableworker');
+    disableworker.addEventListener("click", function() {
+        console.log("Disabling Worker...")
+        disableWorker()
+        console.log("Worker disabled.")
+    })
 
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function(){
-  if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
-    var data = JSON.parse(xmlhttp.responseText);
-    console.log(typeof data);
-    scoreDiv = document.getElementById('score');
-    // scoreDiv.innerHTML = "<h1>" + data.thuisteam + " " + data.thuisgoals + " - "+ data.uitgoals + " " + data.uitteam + "</h1>";
-  }
-};
-xmlhttp.open("GET","./js/soccer.json",true);
-xmlhttp.send();
+    // check if service worker is running
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+        if(registrations.length == 1) {
+            var notifications = document.getElementById('notifications');
+            notifications.setAttribute("style", "display: none");
+            var runningworker = document.getElementById('runningworker');
+            runningworker.setAttribute("style", "display: block");
+        }
+    });
+
+    // disable service workers
+    function disableWorker() {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+            registration.unregister()
+        } 
+        })
+        location.reload();
+    }
+
+    var test = document.getElementById('testnotification');
+    test.addEventListener("click", function() {
+        send();
+    })
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function(){
+
+    if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
+        var string = xmlhttp.responseText;
+        var json = JSON.parse(string);
+
+        console.log(string);
+
+        if(myStorage.getItem('score') == undefined) {
+            console.log('Score undefined')
+            myStorage.setItem('score', string);
+        } else {
+            if(myStorage.getItem('score') == string) {
+                console.log("score is hetzelfde");
+                //Do nothing
+            } else {
+                console.log("GOALL!!")
+                send();
+                myStorage.setItem('score', string);
+            }
+        }
+        scoreDiv = document.getElementById('score');
+    }
+    };
+    xmlhttp.open("GET","./js/soccer.json",true);
+    xmlhttp.send();
+})();

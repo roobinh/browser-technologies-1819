@@ -96,9 +96,11 @@ test.addEventListener("click", function() {
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function(){
   if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
-    var txt = xmlhttp.responseText;
-    console.log(txt);
+    var data = JSON.parse(xmlhttp.responseText);
+    console.log(typeof data);
+    scoreDiv = document.getElementById('score');
+    // scoreDiv.innerHTML = "<h1>" + data.thuisteam + " " + data.thuisgoals + " - "+ data.uitgoals + " " + data.uitteam + "</h1>";
   }
 };
-xmlhttp.open("GET","https://api.myjson.com/bins/oost2",true);
+xmlhttp.open("GET","./js/soccer.json",true);
 xmlhttp.send();

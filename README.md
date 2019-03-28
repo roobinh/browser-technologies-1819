@@ -39,7 +39,7 @@ De live score pagina heeft verschillende functionaliteit:
 - Zonder afbeeldingen werkt de pagina zoals behoren
 - De pagina is volledig resizeable en useable op alle dimensies
 
-![Pixel 2X](https://i.ibb.co/x8FYChz/image.png =300x)
+![Pixel 2X](https://i.ibb.co/x8FYChz/image.png =300x200)
 
 - Ook zonder CSS werkt de pagina goed. 
 

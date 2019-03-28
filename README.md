@@ -16,7 +16,7 @@ In deze readme beschrijf ik hoe de website werkt en hoe ik onlangs de restrictie
 
 *Belangrijk om te weten: De website wordt server-side gerendered door middel van node.js. Dit zorgt ervoor dat de website ook werkt zonder javascript.*
 
-## 1. Wireflow
+## 2. Wireflow
 ### Hoofdpagina 
 ![frontpage.png](https://i.ibb.co/W2Xv1YZ/front-page.png)
 
@@ -35,11 +35,11 @@ De live score pagina heeft verschillende functionaliteit:
 - Mocht de gebruiker geen service worker/javascipt toestaan, is het mogelijk om je e-mail/whatsapp op te geven. Deze wordt dan opgeslagen in een lokaal JSON bestand op de server. Elke keer als er gescoord is, stuurt de server een e-mail/whatsapp bericht naar alle opgeslagen gebruikers. Zo is het ook nog mogelijk om op apple/oudere producten meldingen te ontvangen.
 - Mocht de gebruiker hier allemaal geen gebruik van willen maken, wordt de pagina elke 10 seconden automatisch ververst om de meest up-to-date score weer te geven.
 
-### 3. Feature(s)/browser technologies
+## 3. Feature(s)/browser technologies
 - Zonder afbeeldingen werkt de pagina zoals behoren
 - De pagina is volledig resizeable en useable op alle dimensies
 
-![Pixel 2X](https://i.ibb.co/x8FYChz/image.png)
+![Pixel 2X](https://i.ibb.co/x8FYChz/image.png =300x)
 
 - Ook zonder CSS werkt de pagina goed. 
 
@@ -61,4 +61,24 @@ De live score pagina heeft verschillende functionaliteit:
     -moz-osx-font-smoothing: grayscale;
 }
 ```
- 
+- viewport tag
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1">
+```
+
+## 4. Browser Support
+Er wordt op de website gebruik gemaakt van de volgende technieken:
+
+- [img (98.17%)](https://caniuse.com/#search=img)
+- [button (100%?)](https://www.w3schools.com/tags/tag_button.asp)
+- [select (100%?)](https://www.w3schools.com/tags/tag_select.asp)
+- [viewport (95.73)](https://caniuse.com/#search=viewport)
+- [form (95.33)](https://caniuse.com/#search=form)
+- [http-equiv (100%)](https://www.w3schools.com/tags/att_meta_http_equiv.asp)
+- [service Worker (89.84%)](https://caniuse.com/#search=service%20worker)
+- [notifications (75.17%)](https://caniuse.com/#search=notifications)
+
+Zonder Javascript en CSS werkt de pagina zoals behoren, dus is het niet *noodzakelijk* dat deze functies gesupport worden. Bovendien heb je een redelijk nieuw device nodig om service workers en notificaties te supporten. Bovenstaand staat de support voor de html functies, die allemaal goed gesupport worden (druk op links voor meer informatie).
+
+## 5. Accessability
+### Screen reader

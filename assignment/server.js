@@ -126,6 +126,33 @@ app.get('/email/:email', function(req, res, next) {
     res.redirect('/score');
 })
 
+app.get('/whatsapp/:number', function(req, res, next) {
+    // read new email to file (if it doesnt exist)
+    fs.readFile('./public/json/numbers.json', (err, buffer) => {
+        if (err) throw err;
+
+        const json = JSON.parse(buffer.toString());
+        const newNumber = req.params.number;
+        console.log(json)
+        console.log(newNumber)
+
+        if(newNumber !== 'client.js') {
+            if(!valueExists(json, newNumber)) {
+                const jsonLength = Object.keys(json).length;                
+                json[jsonLength] = newNumber;
+
+                fs.writeFile('./public/json/email.json', JSON.stringify(json), (err) => {
+                    if (err) throw err;
+                    console.log('The file has been saved!');
+                });
+            }      
+        }  
+    });
+
+    //redirect to score page
+    res.redirect('/score');
+})
+
 // check if value exists in json
 function valueExists(jsObj, value){
     for (var key in jsObj){

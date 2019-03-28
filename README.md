@@ -3,7 +3,7 @@
 ## Inhoudsopgave
 1. De opdracht
 2. Wireflow (functional, reliable & pleasurable layers)
-3. Beschrijving van de feature(s)/browser technologies
+3. Feature(s)/browser technologies
 4. Browser Support
 5. Accessability
 
@@ -19,6 +19,7 @@ In deze readme beschrijf ik hoe de website werkt en hoe ik onlangs de restrictie
 ## 1. Wireflow
 ### Hoofdpagina 
 ![frontpage.png](https://i.ibb.co/W2Xv1YZ/front-page.png)
+
 De hoofdpagina van de website is heel eenvoudig. Op de hoofdpagina kan je in een drop-down menu je favoriete eredivisie team selecteren. Na het selecteren klik je op *volgende* en wordt je doorgeleid naar de ‘live score pagina’. 
 
 - Deze pagina werkt ook zonder afbeeldingen, javascript en cache
@@ -26,17 +27,24 @@ De hoofdpagina van de website is heel eenvoudig. Op de hoofdpagina kan je in een
 
 ### Score pagina
 ![livepage.png](https://i.ibb.co/G5dQDX8/f17ct8p.png)
+
 De live score pagina heeft verschillende functionaliteit: 
 
-- Het eerste wat je ziet is de live score van de voetbalwedstrijd (uit een lokaal JSON  bestand, zou ook API kunnen zijn). Bij het refreshen van de pagina wordt opnieuw de score geladen en weergegeven (ook zonder javascript). Dit werkt dus op alle browsers, omdat het server side gerendered wordt.
-- Nadat er door de server gechecked is of de gebruiker service workers ondersteund, wordt onder de score gevraagd of de gebruiker gebruik wil maken van push notifications. Bij het klikken op 'Ja, graag' wordt er door de browser gevraagd of je meldingen wil toestaan. Hierna wordt er een service worker aangemaakt die push notifications mogelijk maakt. Elke 10 seconden wordt de pagina refreshed, en op het moment dat er gescoord is krijgt de gebruiker een push notification.
-- Mocht de gebruiker geen service worker/javascipt toestaan, is het mogelijk om je e-mail/whatsapp op te geven. Deze wordt dan opgeslagen in een lokaal JSON bestand op de server. Elke keer als er gescoord is, stuurt de server een e-mail/whatsapp bericht naar alle opgeslagen gebruikers. Zo is het ook nog mogelijk om op oude devices/apple producten meldingen te ontvangen.
+- Het eerste wat je ziet is de live score van de voetbalwedstrijd (uit een lokaal JSON bestand, zou ook API kunnen zijn). Bij het refreshen van de pagina wordt opnieuw de score geladen en weergegeven (ook zonder javascript). Dit werkt dus op alle browsers, omdat het server side gerendered wordt.
+- Nadat er gechecked is of de gebruiker service workers ondersteund, wordt er gevraagd of de gebruiker gebruik wil maken van push notifications. Bij het klikken op 'Ja, graag' wordt er door de browser gevraagd of je meldingen wil toestaan. Hierna wordt er een service worker aangemaakt die push notifications mogelijk maakt. Elke 10 seconden wordt de pagina refreshed; op het moment dat er gescoord is krijgt de gebruiker een push notification.
+- Mocht de gebruiker geen service worker/javascipt toestaan, is het mogelijk om je e-mail/whatsapp op te geven. Deze wordt dan opgeslagen in een lokaal JSON bestand op de server. Elke keer als er gescoord is, stuurt de server een e-mail/whatsapp bericht naar alle opgeslagen gebruikers. Zo is het ook nog mogelijk om op apple/oudere producten meldingen te ontvangen.
 - Mocht de gebruiker hier allemaal geen gebruik van willen maken, wordt de pagina elke 10 seconden automatisch ververst om de meest up-to-date score weer te geven.
 
-Optimalisatie Score Pagina
+### 3. Feature(s)/browser technologies
 - Zonder afbeeldingen werkt de pagina zoals behoren
-- De pagina is volledig resizeable en useable op alle dimensies ![Pixel 2X](https://i.ibb.co/x8FYChz/image.png)
-- Ook zonder CSS werkt de pagina goed. ![NO CSS](https://i.ibb.co/LYMNdPB/image.png).
+- De pagina is volledig resizeable en useable op alle dimensies
+
+![Pixel 2X](https://i.ibb.co/x8FYChz/image.png)
+
+- Ook zonder CSS werkt de pagina goed. 
+
+![NO CSS](https://i.ibb.co/LYMNdPB/image.png).
+
 - Logo size is in HTML defined om ware grootte te voorkomen
 ```html
 <img class="logo" src="/img/logo_eredivisie.png" alt="oba_logo" href="#home" width="300" height="200">

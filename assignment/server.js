@@ -141,7 +141,7 @@ app.get('/whatsapp/:number', function(req, res, next) {
                 const jsonLength = Object.keys(json).length;                
                 json[jsonLength] = newNumber;
 
-                fs.writeFile('./public/json/email.json', JSON.stringify(json), (err) => {
+                fs.writeFile('./public/json/numbers.json', JSON.stringify(json), (err) => {
                     if (err) throw err;
                     console.log('The file has been saved!');
                 });

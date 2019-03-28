@@ -38,12 +38,9 @@ De live score pagina heeft verschillende functionaliteit:
 ## 3. Feature(s)/browser technologies
 - Zonder afbeeldingen werkt de pagina zoals behoren
 - De pagina is volledig resizeable en useable op alle dimensies
-
-![Pixel 2X](https://i.ibb.co/x8FYChz/image.png =300x200)
-
+<img src="https://i.ibb.co/x8FYChz/image.png" width="200" height="400" />
 - Ook zonder CSS werkt de pagina goed. 
-
-![NO CSS](https://i.ibb.co/LYMNdPB/image.png).
+<img src="https://i.ibb.co/LYMNdPB/image.png" width="200" height="400" />
 
 - Logo size is in HTML defined om ware grootte te voorkomen
 ```html

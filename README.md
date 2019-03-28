@@ -9,13 +9,12 @@ Er zijn talloze mogelijke apparaten/browsers/operating systems die jouw site wil
 * [3. Feature(s)/browser technologies](#3)
 * [4. Browser Support](#4)
 * [5. Accessability](#5)
+* [6. Conclusie](#6)
 
 <a name="1"></a>
 
 ## 1. De opdracht
-Voor het vak browser technologies maken we een site over 1 van de mogelijke onderwerpen gekregen van de docent. Ik heb gekozen voor de opdracht: *Melding ontvangen wanneer favoriete voetbalteam gescoord heeft.* Er zitten veel restrictions aan het geven van meldingen, zo is het geven van meldingen vanuit de browser bijvoorbeeld al niet mogelijk op safari (Apple). 
-
-In deze readme beschrijf ik hoe de website werkt en hoe ik onlangs de restricties toch een toegankelijke website voor alle devices heb gemaakt.
+Voor het vak browser technologies maken we een site over 1 van de mogelijke onderwerpen gekregen van de docent. Ik heb gekozen voor de opdracht: **Melding ontvangen wanneer favoriete voetbalteam gescoord heeft.** Er zitten veel restrictions aan het geven van meldingen, zo is het geven van meldingen vanuit de browser bijvoorbeeld al niet mogelijk op Safari (Apple). In deze readme beschrijf ik hoe de website werkt en hoe ik onlangs de restricties toch een toegankelijke website voor alle devices heb gemaakt.
 
 *Belangrijk om te weten: De website wordt server-side gerendered door middel van node.js. Dit zorgt ervoor dat de website ook werkt zonder javascript.*
 
@@ -35,15 +34,15 @@ De hoofdpagina van de website is heel eenvoudig. Op de hoofdpagina kan je in een
 
 De live score pagina heeft verschillende functionaliteit: 
 
-- Het eerste wat je ziet is de live score van de voetbalwedstrijd (uit een lokaal JSON bestand, zou ook API kunnen zijn). Bij het refreshen van de pagina wordt opnieuw de score geladen en weergegeven (ook zonder javascript). Dit werkt dus op alle browsers, omdat het server side gerendered wordt.
-- Nadat er gechecked is of de gebruiker service workers ondersteund, wordt er gevraagd of de gebruiker gebruik wil maken van push notifications. Bij het klikken op 'Ja, graag' wordt er door de browser gevraagd of je meldingen wil toestaan. Hierna wordt er een service worker aangemaakt die push notifications mogelijk maakt. Elke 10 seconden wordt de pagina refreshed; op het moment dat er gescoord is krijgt de gebruiker een push notification.
+- Het eerste wat je ziet is de live score van de voetbalwedstrijd (uit een lokaal JSON bestand op de server, zou dus ook API kunnen zijn). Bij het refreshen van de pagina wordt opnieuw de score geladen en weergegeven (ook zonder JavaScript). Dit werkt dus op alle browsers, omdat het server side gerendered wordt.
+- Nadat er gechecked is of de browser van de gebruiker Service Workers ondersteund, wordt er gevraagd of de gebruiker gebruik wil maken van push notifications. Bij het klikken op 'Ja, graag' wordt er door de browser gevraagd of je meldingen wil toestaan. Hierna wordt er een service worker aangemaakt die push notifications mogelijk maakt. Elke 10 seconden wordt de pagina refreshed; op het moment dat er gescoord is krijgt de gebruiker een push notification.
 - Mocht de gebruiker geen service worker/javascipt toestaan, is het mogelijk om je e-mail/whatsapp op te geven. Deze wordt dan opgeslagen in een lokaal JSON bestand op de server. Elke keer als er gescoord is, stuurt de server een e-mail/whatsapp bericht naar alle opgeslagen gebruikers. Zo is het ook nog mogelijk om op apple/oudere producten meldingen te ontvangen.
 - Mocht de gebruiker hier allemaal geen gebruik van willen maken, wordt de pagina elke 10 seconden automatisch ververst om de meest up-to-date score weer te geven.
 
 <a name="3"></a>
 
 ## 3. Feature detection / browser technologies
-- Zonder afbeeldingen werkt de pagina zoals behoren
+- Zonder afbeeldingen werkt de pagina zoals behoren. [Meer info](#5.1)
 - De pagina is volledig resizeable en useable op alle dimensies
 <img src="https://i.ibb.co/x8FYChz/image.png" width="200" height="400" />
 - Ook zonder CSS werkt de pagina goed. 
@@ -51,7 +50,7 @@ De live score pagina heeft verschillende functionaliteit:
 <img src="https://i.ibb.co/LYMNdPB/image.png" width="200" height="400" />
 
 - Logo size is in HTML defined om ware grootte te voorkomen
-  
+    
 ```html
 <img class="logo" src="/img/logo_eredivisie.png" alt="oba_logo" href="#home" width="300" height="200">
 ```
@@ -96,8 +95,13 @@ Zonder Javascript en CSS werkt de pagina zoals behoren, dus is het niet *noodzak
 ## 5. Accessability
 
 In dit hoofdstuk ga ik de volgende onderwerpen testen
-Localstorage/Cookies, Afbeeldingen, Custom Fonts, Kleur, Muis, Javascript, Breedband & Screen 
+- 5.1 Afbeeldingen
+- 5.2 Muis
+- 5.3 Screen reader
+- 5.4 Javascript
+- 5.5 Breedband
 
+<a name="5.1"></a>
 ### 5.1 Afbeeldingen
 <img src="https://i.ibb.co/RN2GymZ/image.png" width="400" height="300" />
 
@@ -159,3 +163,12 @@ Ik heb de laadsnelheid getest door middel van de Chrome Dev Tools. Ik heb hierin
 (De volledige pagina is maar 10.9Kb)
 
 ![Breedband](https://i.ibb.co/bW0xxn9/image.png)
+
+<a name="6"></a>
+
+## 6. Conclusie
+Omdat er op het web heel veel verschillende apparaten zijn, is het belangrijk dat een website zo gebouwd is dat het op alle apparaten/browsers/operating systems onder alle omstandigheden beschikbaar is. Hier heb ik me de afgelopen 3 week in verdiept en heb een hele hoop geleerd.
+
+Bedankt voor het lezen.
+
+

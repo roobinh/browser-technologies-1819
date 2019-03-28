@@ -4,7 +4,7 @@
 Core functionaliteit: Melding ontvangen wanneer favoriete voetbalteam gescoord heeft.
 Met gebruik van: Node.js & service workers.
 
-![https://i.ibb.co/W2Xv1YZ/front-page.png](frontpage.png)
+![https://imgur.com/a/9alUyve](frontpage.png)
 De hoofdpagina van de website is heel eenvoudig. Op de hoofdpagina kan je in een drop-down menu je favoriete eredivisie team selecteren. Na het selecteren klik je op volgende en wordt je doorgeleid naar de ‘live score pagina’. 
 (Deze pagina werkt ook zonder afbeeldingen, javascript en cache)
 (Deze pagina werkt op alle devices omdat ‘select’ en ‘button’ door alle browsers gesupport wordt.) 

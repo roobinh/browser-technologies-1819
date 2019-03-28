@@ -1,12 +1,13 @@
 # Browser Technologies @cmda-minor-web 1819
 
 ## Inhoudsopgave
-1. De opdracht
-2. Wireflow (functional, reliable & pleasurable layers)
-3. Feature(s)/browser technologies
-4. Browser Support
-5. Accessability
+1. [De opdracht](#1)
+2. [Wireflow (functional, reliable & pleasurable layers)](#2)
+3. [Feature(s)/browser technologies](#3)
+4. [Browser Support](#4)
+5. [Accessability](#5)
 
+<a name="1"></a>
 ## 1. De opdracht
 Er zijn talloze mogelijke apparaten/browsers/operating systems die jouw site willen bekijken. In het vak browser Technologies leren we hoe we een robuuste & toegankelijke website voor alle devices maken. Het web is voor iedereen en daarom is het belangrijk dat de website op alle devices de core functionaliteit behaalt.
 
@@ -16,6 +17,7 @@ In deze readme beschrijf ik hoe de website werkt en hoe ik onlangs de restrictie
 
 *Belangrijk om te weten: De website wordt server-side gerendered door middel van node.js. Dit zorgt ervoor dat de website ook werkt zonder javascript.*
 
+<a name="2"></a>
 ## 2. Wireflow
 ### Hoofdpagina 
 ![frontpage.png](https://i.ibb.co/W2Xv1YZ/front-page.png)
@@ -24,7 +26,7 @@ De hoofdpagina van de website is heel eenvoudig. Op de hoofdpagina kan je in een
 
 - Deze pagina werkt ook zonder afbeeldingen, javascript en cache
 - Deze pagina werkt op alle devices omdat ‘select’ en ‘button’ door alle browsers gesupport wordt
-
+  
 ### Score pagina
 ![livepage.png](https://i.ibb.co/G5dQDX8/f17ct8p.png)
 
@@ -35,11 +37,15 @@ De live score pagina heeft verschillende functionaliteit:
 - Mocht de gebruiker geen service worker/javascipt toestaan, is het mogelijk om je e-mail/whatsapp op te geven. Deze wordt dan opgeslagen in een lokaal JSON bestand op de server. Elke keer als er gescoord is, stuurt de server een e-mail/whatsapp bericht naar alle opgeslagen gebruikers. Zo is het ook nog mogelijk om op apple/oudere producten meldingen te ontvangen.
 - Mocht de gebruiker hier allemaal geen gebruik van willen maken, wordt de pagina elke 10 seconden automatisch ververst om de meest up-to-date score weer te geven.
 
+<a name="3"></a>
+
 ## 3. Feature(s)/browser technologies
 - Zonder afbeeldingen werkt de pagina zoals behoren
 - De pagina is volledig resizeable en useable op alle dimensies
 <img src="https://i.ibb.co/x8FYChz/image.png" width="200" height="400" />
+
 - Ook zonder CSS werkt de pagina goed. 
+  
 <img src="https://i.ibb.co/LYMNdPB/image.png" width="200" height="400" />
 
 - Logo size is in HTML defined om ware grootte te voorkomen
@@ -63,6 +69,7 @@ De live score pagina heeft verschillende functionaliteit:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 
+<a name="4"></a>
 ## 4. Browser Support
 Er wordt op de website gebruik gemaakt van de volgende technieken:
 
@@ -77,5 +84,10 @@ Er wordt op de website gebruik gemaakt van de volgende technieken:
 
 Zonder Javascript en CSS werkt de pagina zoals behoren, dus is het niet *noodzakelijk* dat deze functies gesupport worden. Bovendien heb je een redelijk nieuw device nodig om service workers en notificaties te supporten. Bovenstaand staat de support voor de html functies, die allemaal goed gesupport worden (druk op links voor meer informatie).
 
+<a name="5"></a>
 ## 5. Accessability
+
+In dit hoofdstuk ga ik de volgende onderwerpen testen
+Localstorage/Cookies, Afbeeldingen, Custom Fonts, Kleur, Muis, Javascript, Breedband & Screen reader
+
 ### Screen reader

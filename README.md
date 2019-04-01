@@ -180,47 +180,33 @@ Voor de beoordeling van dit project hebben we een beoordelingsformulier gekregen
 
 <img src="https://i.ibb.co/C5wHFKZ/image.png">
 
-### 1. 
-De core functionaliteit is behaald, namelijk het ontvangen van een melding op het moment dat er gescoord is. Mocht je meldingen niet accepteren, kan je altijd nog kiezen voor een e-mail/whatsapp'je.
+1. De core functionaliteit is behaald, namelijk het ontvangen van een melding op het moment dat er gescoord is. Mocht je meldingen niet accepteren, kan je altijd nog kiezen voor een e-mail/whatsapp'je.
 
-### 2.
-Code werkt goed, ook zonder CSS en JavaScript.  [Zie Hoofdstuk 3](#3)
+2. Code werkt goed, ook zonder CSS en JavaScript.  [Zie Hoofdstuk 3](#3)
 
-### 3.
-Kleuren zijn voornamelijk zwart op wit en de website is aantoonbaar getest. [Zie Hoofdstuk 5](#5)
+3. Kleuren zijn voornamelijk zwart op wit en de website is aantoonbaar getest. [Zie Hoofdstuk 5](#5)
 
-### 4.
-Readme is naar mijn mening duidelijk opgebouwd en alle nodige informatie is behandeld.
+4. Readme is naar mijn mening duidelijk opgebouwd en alle nodige informatie is behandeld.
 
 <img src="https://i.ibb.co/y5pM3vS/image.png">
 
-### 5.
-Progressive enhancement is in het kort dat je website ook werkt zonder CSS en JavaScript. 
+5. Progressive enhancement is in het kort dat je website ook werkt zonder CSS en JavaScript. 
 
-### 6.
-Code werkt goed, ook zonder CSS en JavaScript.  [Zie Hoofdstuk 3](#3)
+6. Code werkt goed, ook zonder CSS en JavaScript.  [Zie Hoofdstuk 3](#3)
 
-### 7.
-Code werkt goed, ook zonder CSS en JavaScript.  [Zie Hoofdstuk 3](#3)
+7. Code werkt goed, ook zonder CSS en JavaScript.  [Zie Hoofdstuk 3](#3)
 
-### 8.
-Code werkt goed, ook zonder CSS en JavaScript.  [Zie Hoofdstuk 3](#3)
+8. Code werkt goed, ook zonder CSS en JavaScript.  [Zie Hoofdstuk 3](#3)
 
-### 9.
-Ja, voor het selecteren van teams is een selector gebruikt en voor het invoeren van je e-mail/whatsapp wordt text gebruikt met een placeholder.
+9. Ja, voor het selecteren van teams is een selector gebruikt en voor het invoeren van je e-mail/whatsapp wordt text gebruikt met een placeholder.
 
-### 10.
-Ja. [Zie Hoofdstuk 5.3](#5.3)
+10. Ja. [Zie Hoofdstuk 5.3](#5.3)
 
-### 11.
-Ja. [Zie Hoofdstuk 5.3](#5.3)
+11. Ja. [Zie Hoofdstuk 5.3](#5.3)
 
-### 12.
-Ja. [Zie Hoofdstuk 5.1](#5)
+12. Ja. [Zie Hoofdstuk 5.1](#5)
 
-### 13.
-Feature detection in het kort: Ervoor zorgen dat je website werkt op alle (zo veel mogelijk) mogelijke devices. Denk hierbij aan browsers die bijvoorbeeld geen e-mail form supporten; hoe ga je daarmee om?
+13. Feature detection in het kort: Ervoor zorgen dat je website werkt op alle (zo veel mogelijk) mogelijke devices. Denk hierbij aan browsers die bijvoorbeeld geen e-mail form supporten; hoe ga je daarmee om?
 
-### 14.
-De website doet het in alle browsers en er is fallback.
+14. De website doet het in alle browsers en er is fallback.
 
